@@ -29,7 +29,6 @@ class MyRoute(APIRoute):
             body = await request.body()
             if re.match(rb'.*"name"\s*:\s*""', body):
                 return Response("ok")
-            print(body)
             return await original_route_handler(request)
 
         return my_route_handler
